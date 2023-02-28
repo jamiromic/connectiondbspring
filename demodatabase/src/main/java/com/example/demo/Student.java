@@ -12,14 +12,16 @@ import jakarta.persistence.Table;
 //Viene indicata la tabella di riferimento
 @Table(name = "students")
 public class Student {
-	//Variabili d'istanza
-	
 	
 	//Indichiamo la chiave primaria
 	@Id
 	//Diciamo di generare la chiave primaria in autoincrement e unique
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	
+	//Variabili d'istanza
+	
+	@Column(name = "id")
+    private int id;
 
     @Column(name = "name")
     private String name;
@@ -30,8 +32,21 @@ public class Student {
     @Column(name = "grade")
     private String grade;
     
+    //Constructor
     
-    //Setter e Getter
+    public Student() {
+    	super();
+    }
+    
+    public Student(int id, String name, int age, String grade) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.grade = grade;
+	}
+
+	//Setter e Getter
     
 	public String getName() {
 		return name;
@@ -56,9 +71,13 @@ public class Student {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-    
-    
-    
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}   
 
 }
-
