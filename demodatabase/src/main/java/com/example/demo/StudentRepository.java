@@ -1,9 +1,13 @@
 package com.example.demo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StudentRepository extends JpaRepository<Student, Long>{
 	
-	// Metodi personalizzati se necessario
+	//
+	
+	List<Student>findByName(String name);
 
 }

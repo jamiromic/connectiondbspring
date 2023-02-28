@@ -7,10 +7,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+//Entity vuol dire che l'entità è presente nel database
 @Entity
+//Viene indicata la tabella di riferimento
 @Table(name = "students")
 public class Student {
+	//Variabili d'istanza
+	
+	
+	//Indichiamo la chiave primaria
 	@Id
+	//Diciamo di generare la chiave primaria in autoincrement e unique
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -22,7 +29,10 @@ public class Student {
     
     @Column(name = "grade")
     private String grade;
-
+    
+    
+    //Setter e Getter
+    
 	public String getName() {
 		return name;
 	}
@@ -52,4 +62,3 @@ public class Student {
 
 }
 
-// costruttori, getter e setter, ecc...
