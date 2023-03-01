@@ -35,7 +35,7 @@ public class Student {
     //Constructor
     
     public Student() {
-    	super();
+    	
     }
     
     public Student(int id, String name, int age, String grade) {

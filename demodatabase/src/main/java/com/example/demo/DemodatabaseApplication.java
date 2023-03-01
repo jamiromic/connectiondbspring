@@ -3,6 +3,8 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+//Questa viene chiamata classe Entry Point
+
 @SpringBootApplication
 public class DemodatabaseApplication {
 
