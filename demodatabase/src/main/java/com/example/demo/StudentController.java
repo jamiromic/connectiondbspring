@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/students")
 public class StudentController {
 	
@@ -27,9 +28,8 @@ public class StudentController {
     private StudentService studentService;
   
     // Get All Students
-    @CrossOrigin
     @GetMapping("/")
-    public List<Student> getAllStudents()
+    public List<Student> getAll()
     {
         return studentService.getAll();
     }
@@ -37,27 +37,22 @@ public class StudentController {
     // Get the student details by
     // ID
     @GetMapping("/{id}")
-    public Student getStudentById(
-        @PathVariable(value = "id") int id)
+    public Optional<Student> getById(
+        @PathVariable(value = "id") Long id)
     { 	
         return studentService.getById(id);
     }
   
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Student addStudent(@RequestBody Student student){
+    public Student createStud(@RequestBody Student student){
         return studentService.createStud(student);
     }
-  
+      
     @DeleteMapping("/delete/{id}")
-    public void deleteStudent(@PathVariable(value = "id") int id) {
-        studentService.deleteStudentById(id);
-        
+    public void deleteStudent(@PathVariable Long id) {
+    	studentService.deleteById(id);
+    	
     }
-  
-    @PutMapping("/student/update/{id}")
-    public Student updateStudent(@PathVariable int id, @RequestBody Student studentDetails) {
-        return studentService.updateStudent(id, studentDetails);
-      }
 
 }

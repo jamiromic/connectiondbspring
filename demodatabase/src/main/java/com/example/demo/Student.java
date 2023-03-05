@@ -21,7 +21,7 @@ public class Student {
 	//Variabili d'istanza
 	
 	@Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -38,8 +38,7 @@ public class Student {
     	
     }
     
-    public Student(int id, String name, int age, String grade) {
-		super();
+    public Student(Long id, String name, int age, String grade) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -72,11 +71,11 @@ public class Student {
 		this.grade = grade;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}   
 

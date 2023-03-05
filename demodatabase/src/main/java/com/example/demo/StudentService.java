@@ -2,7 +2,6 @@ package com.example.demo;
 
 import java.util.List;
 
-import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,7 @@ public class StudentService {
 		return studentRepository.findAll();
 	}
 	
-	public Student getById(int id) {
+	public java.util.Optional<Student> getById(Long id) {
 		return studentRepository.findById(id);
 	}
 	
@@ -24,16 +23,11 @@ public class StudentService {
 		return studentRepository.save(student);
 	}
 	
-	public Student updateStudent(int id, Student studentDetails) {
-		Student student = studentRepository.findById(id);
-	    student.setName(studentDetails.getName());
-	    student.setAge(studentDetails.getAge());
-	    student.setGrade(studentDetails.getGrade());
-	    return studentRepository.save(student);
-	}
-	
-	public void deleteStudentById(int id) {
-        Student student = studentRepository.findById(id);
+	public void delete(Student student) {
+        studentRepository.delete(student);
+    }
+    
+    public void deleteById(Long id) {
         studentRepository.deleteById(id);
     }
 	
