@@ -29,8 +29,6 @@ public class Student {
     @Column(name = "age")
     private int age;
     
-    @Column(name = "grade")
-    private String grade;
     
     //Constructor
     
@@ -38,11 +36,10 @@ public class Student {
     	
     }
     
-    public Student(Long id, String name, int age, String grade) {
+    public Student(Long id, String name, int age) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
-		this.grade = grade;
 	}
 
 	//Setter e Getter
@@ -61,14 +58,6 @@ public class Student {
 
 	public void setAge(int age) {
 		this.age = age;
-	}
-
-	public String getGrade() {
-		return grade;
-	}
-
-	public void setGrade(String grade) {
-		this.grade = grade;
 	}
 
 	public Long getId() {
