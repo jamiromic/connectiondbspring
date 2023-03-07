@@ -16,7 +16,7 @@ public class Student {
 	//Indichiamo la chiave primaria
 	@Id
 	//Diciamo di generare la chiave primaria in autoincrement e unique
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	
 	//Variabili d'istanza
 	
