@@ -42,6 +42,12 @@ public class StudentController {
     { 	
         return studentService.getById(id);
     }
+    
+    @PutMapping("update/{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable(value = "id") Long id, @RequestBody Student updatedStudent) {
+            Student student = studentService.updateStudent(updatedStudent);
+            return ResponseEntity.ok(student);
+    }
   
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)

@@ -19,8 +19,20 @@ public class StudentService {
 		return studentRepository.findById(id);
 	}
 	
+	
 	public Student createStud(Student student) {
 		return studentRepository.save(student);
+	}
+	
+	public Student updateStudent(Student updatedStudent) {
+	    java.util.Optional<Student> existingStudent = studentRepository.findById(updatedStudent.getId());
+	    Student studentToUpdate = existingStudent.get();
+        studentToUpdate.setName(updatedStudent.getName());
+        studentToUpdate.setSurname(updatedStudent.getSurname());
+        studentToUpdate.setAge(updatedStudent.getAge());
+        studentToUpdate.setEmail(updatedStudent.getEmail());
+
+	        return studentRepository.save(studentToUpdate);
 	}
 	
 	public void delete(Student student) {

@@ -16,7 +16,7 @@ public class Student {
 	//Indichiamo la chiave primaria
 	@Id
 	//Diciamo di generare la chiave primaria in autoincrement e unique
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	//Variabili d'istanza
 	
@@ -25,9 +25,15 @@ public class Student {
 
     @Column(name = "name")
     private String name;
+    
+    @Column(name = "surname")
+    private String surname;
 
     @Column(name = "age")
     private int age;
+    
+    @Column(name = "email")
+    private String email;
     
     
     //Constructor
@@ -36,10 +42,12 @@ public class Student {
     	
     }
     
-    public Student(Long id, String name, int age) {
+    public Student(Long id, String name, String surname, int age, String email ) {
 		this.id = id;
 		this.name = name;
+		this.surname = surname;
 		this.age = age;
+		this.email = email;
 	}
 
 	//Setter e Getter
@@ -66,6 +74,24 @@ public class Student {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}   
+	
+	
 
 }
